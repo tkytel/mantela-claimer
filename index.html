@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mantela Claimer</title>
+<script src="./fetch.js" defer></script>
+<script src="./index.js" defer></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
+<style>
+.fill-inline {
+	box-sizing: border-box;
+	width: 100%;
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Mantela Claimer</h1>
+<p>各局によって予約されている推奨プレフィックス番号 (<code>preferredPrefix</code>) を一覧します</p>
+</header>
+<main>
+<form id="formMantela">
+<fieldset>
+<legend>初期設定</legend>
+<div>
+<label for="urlMantela">mantela.json の URL:</label>
+<input type="url" id="urlMantela" name="first" required class="fill-inline" style="font-family: monospace">
+</div>
+<div>
+<label for="checkNest">交換局のホップ数を制限する:</label>
+<input type="checkbox" id="checkNest">
+</div>
+<div>
+<label for="numNest">最大ホップ数:</label>
+<input type="number" id="numNest" min="0" step="1" class="fill-inline">
+</div>
+<hr>
+<div>
+<input type="submit" id="btnGenerate" value="取得..." class="fill-inline">
+</div>
+<div>
+<output id="outputStatus"></output>
+</div>
+</fieldset>
+</form>
+<section>
+<h3>取得結果</h3>
+<p>推奨プレフィックス番号が存在しない局は表示されません</p>
+<div id="table-container"></div>
+</section>
+</main>
+</body>
+</html>
